@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    
+<hibernate-configuration>
+<session-factory>
+
+<!--  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> 
+<property name="hibernate.connection.password">ih@telur0v@</property> 
+<property name="hibernate.connection.url">jdbc:sqlserver://SRVMJAIDBDEV01\\SQLEXPRESS:1433;databaseName=DADOSSET;sendStringParametersAsUnicode=false</property> 
+<property name="hibernate.connection.username">coalaauth</property> 
+<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>  
+<property name="hibernate.connection.datasource">java:/comp/env/jdbc/COALADB</property>-->
+
+<property name="hibernate.connection.datasource">java:jboss/datasources/SQLServer</property>
+<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+<property name="current_session_context_class">thread</property>
+
+ <!-- Pool de Conexões - C3P0 
+        Colocar JARs na pasta lib do TomCat
+ Não é necessário quando a conexão é feita através de um Data Source. Nesse caso, o poll deve ser configurado no context.xml -->
+        
+
+<!--Configuracao de debug -->
+<property name="show_sql">true</property>
+<property name="format_sql">true</property>
+<property name="generate_statistics">true</property>
+<property name="use_sql_coments">true</property>
+
+
+<mapping package="br.com.CoalaBillingWS.model"/> 
+
+<mapping class="br.com.CoalaBillingWS.model.ColetaHospitalar"/>
+
+
+</session-factory>
+</hibernate-configuration>
